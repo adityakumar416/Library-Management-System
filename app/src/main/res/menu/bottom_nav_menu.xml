@@ -7,11 +7,12 @@
             android:id="@+id/booksFragment"
             android:title="Books" />
 
-        <item android:id="@+id/libraryFragment"
+        <item
+            android:id="@+id/usersFragment"
             android:title="Users" />
 
         <item
-            android:id="@+id/usersFragment"
+            android:id="@+id/libraryFragment"
             android:title="Library" />
 
 
