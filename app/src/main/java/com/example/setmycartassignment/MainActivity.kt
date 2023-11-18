@@ -41,6 +41,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding.toolbar.setBackgroundColor(resources.getColor(R.color.white))
         binding.toolbar.setTitleTextColor(Color.BLACK)
 
+
+
         binding.navView.setNavigationItemSelectedListener(this)
 
         val toggle = ActionBarDrawerToggle(
@@ -51,10 +53,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         supportActionBar?.title = "Books"
 
-        // Initialize versionMenuItem here
+
         versionMenuItem = binding.navView.menu.findItem(R.id.version)
 
-        // Update the version information when the activity is created
         updateVersionMenuItem()
     }
 
@@ -88,11 +89,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun updateVersionMenuItem() {
-        // Get the version dynamically
+
         val packageInfo = packageManager.getPackageInfo(packageName, 0)
         val versionName = packageInfo.versionName
-
-        // Set the version in the menu item
         versionMenuItem.title = "Version: $versionName"
     }
 

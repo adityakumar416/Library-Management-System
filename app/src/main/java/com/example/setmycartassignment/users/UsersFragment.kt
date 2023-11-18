@@ -1,4 +1,4 @@
-package com.example.setmycartassignment.books
+package com.example.setmycartassignment.users
 
 import android.content.ContentValues
 import android.os.Bundle
@@ -13,61 +13,59 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.setmycartassignment.MainActivity
 import com.example.setmycartassignment.R
-import com.example.setmycartassignment.databinding.FragmentBooksBinding
+import com.example.setmycartassignment.books.BooksModel
+import com.example.setmycartassignment.books.ShowAllBooksAdapter
+import com.example.setmycartassignment.databinding.FragmentUsersBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class BooksFragment : Fragment() {
-
-    private lateinit var binding: FragmentBooksBinding
-    private lateinit var booksList: ArrayList<BooksModel>
+class UsersFragment : Fragment() {
+    private lateinit var binding: FragmentUsersBinding
+    private lateinit var usersList: ArrayList<UsersModel>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentUsersBinding.inflate(layoutInflater, container, false)
 
-        // Inflate the layout for this fragment
-        binding = FragmentBooksBinding.inflate(layoutInflater, container, false)
+        (activity as MainActivity).supportActionBar?.title = "Users"
+
         binding.progressBar.visibility = View.VISIBLE
 
-
-        binding.addBooks.setOnClickListener {
-
-            findNavController().navigate(R.id.action_booksFragment_to_addBooksFragment)
+        binding.addUsers.setOnClickListener {
+            findNavController().navigate(R.id.action_usersFragment_to_addUsersFragment)
         }
 
-
         binding.recyclerview.layoutManager = LinearLayoutManager(context)
-        booksList = arrayListOf()
-
-        (activity as MainActivity).supportActionBar?.title = "Books"
+        usersList = arrayListOf()
 
 
 
-        val databaseReference = FirebaseDatabase.getInstance().getReference("books")
+        val databaseReference = FirebaseDatabase.getInstance().getReference("users")
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                booksList.clear()
+                usersList.clear()
                 Log.i(ContentValues.TAG, "User Books $snapshot")
                 for (dataSnapshot in snapshot.children) {
 
-                    val booksModel: BooksModel? = dataSnapshot.getValue(
-                        BooksModel::class.java)
-                    if (booksModel != null) {
+                    val userModel: UsersModel? = dataSnapshot.getValue(UsersModel::class.java)
+
+                    if (userModel != null) {
                         binding.progressBar.visibility = View.GONE
 
-                        booksList.add(booksModel)
+                        usersList.add(userModel)
                     }
 
                 }
 
 
-                binding.recyclerview.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
+                binding.recyclerview.layoutManager = LinearLayoutManager(context,
+                    RecyclerView.VERTICAL,false)
 
-                binding.recyclerview.adapter = ShowAllBooksAdapter(booksList)
+                binding.recyclerview.adapter = ShowAllUsersAdapter(usersList)
             }
 
             override fun onCancelled(error: DatabaseError) {
