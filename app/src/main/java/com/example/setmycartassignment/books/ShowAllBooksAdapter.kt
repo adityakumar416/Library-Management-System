@@ -8,6 +8,8 @@ import android.view.View.OnLongClickListener
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.setmycartassignment.R
 import kotlin.Int
@@ -20,7 +22,7 @@ class ShowAllBooksAdapter(
 
         val bookName : TextView = view.findViewById(R.id.book_name)
         val quantity : TextView = view.findViewById(R.id.quantity)
-
+        val bookItem: CardView = view.findViewById(R.id.bookItem)
 
 
     }
@@ -38,6 +40,9 @@ class ShowAllBooksAdapter(
             holder.bookName.setText("Book Name : "+booksModel.bookName)
         holder.quantity.setText("Book Quantity : "+booksModel.bookQuantity)
 
+        holder.bookItem.setOnClickListener {
+            holder.itemView.findNavController().navigate(R.id.action_booksFragment_to_libraryFragment)
+        }
 
 
 

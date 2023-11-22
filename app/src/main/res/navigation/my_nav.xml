@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_booksFragment_to_addBooksFragment"
             app:destination="@id/addBooksFragment" />
+        <action
+            android:id="@+id/action_booksFragment_to_libraryFragment"
+            app:destination="@id/libraryFragment" />
     </fragment>
     <fragment
         android:id="@+id/libraryFragment"
@@ -25,9 +28,6 @@
         <action
             android:id="@+id/action_libraryFragment_to_usersFragment"
             app:destination="@id/usersFragment">
-        <argument
-            android:name="userName"
-            app:argType="string" />
         </action>
     </fragment>
     <fragment
@@ -41,9 +41,7 @@
         <action
             android:id="@+id/action_usersFragment_to_libraryFragment"
             app:destination="@id/libraryFragment">
-            <argument
-                android:name="userName"
-                app:argType="string" />
+
         </action>
     </fragment>
     <fragment

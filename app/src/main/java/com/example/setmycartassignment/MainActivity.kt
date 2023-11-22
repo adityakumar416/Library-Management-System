@@ -27,19 +27,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(binding.root)
 
 
-
-
         val navView: BottomNavigationView = binding.bottomNavigationView
-        binding.bottomNavigationView.visibility = View.VISIBLE
 
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val navController = navHostFragment.findNavController()
+
         navView.setupWithNavController(navController)
 
+
         setSupportActionBar(binding.toolbar)
-        binding.toolbar.setBackgroundColor(resources.getColor(R.color.white))
-        binding.toolbar.setTitleTextColor(Color.BLACK)
 
 
 
@@ -93,6 +89,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val packageInfo = packageManager.getPackageInfo(packageName, 0)
         val versionName = packageInfo.versionName
         versionMenuItem.title = "Version: $versionName"
+
     }
 
 }
