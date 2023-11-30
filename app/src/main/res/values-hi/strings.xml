@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Set My Cart Assignment</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="science">Science</string>
+    <string name="_4">4</string>
+    <string name="fav">FAV</string>
+    <string name="books">किताबें</string>
+    <string name="users">उपयोगकर्ता</string>
+    <string name="library">लाइब्रेरी</string>
+    <string name="book_name">किताब का नाम</string>
+    <string name="book_quantity">किताबों की मात्रा</string>
+
+    <string name="share">शेयर करें</string>
+    <string name="rate">रेट करें</string>
+    <string name="change_language">भाषा बदलें</string>
+    <string name="version">संस्करण</string>
+    <string name="user_name">उपयोगकर्ता नाम</string>
+    <string name="total_borrow_books">कुल उधारी की गई किताबें</string>
+    <string name="select_user">उपयोगकर्ता का चयन करें</string>
+    <string name="select_book">किताब का चयन करें</string>
+    <string name="borrow">उधार लें</string>
+
+
+</resources>
