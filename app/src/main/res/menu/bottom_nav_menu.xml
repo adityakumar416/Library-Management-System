@@ -6,17 +6,17 @@
         <item
             android:id="@+id/booksFragment"
             android:icon="@drawable/book_icon"
-            android:title="Books" />
+            android:title="@string/books" />
 
         <item
             android:id="@+id/usersFragment"
             android:icon="@drawable/person_icon"
-            android:title="Users" />
+            android:title="@string/users" />
 
         <item
             android:id="@+id/libraryFragment"
             android:icon="@drawable/townhall"
-            android:title="Library" />
+            android:title="@string/library" />
 
 
 </menu>

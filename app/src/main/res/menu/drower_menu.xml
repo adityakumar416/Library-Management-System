@@ -7,15 +7,19 @@
         <item
             android:id="@+id/share"
             android:icon="@drawable/share_icon"
-            android:title="Share"/>
+            android:title="@string/share"/>
         <item
             android:id="@+id/rate"
             android:icon="@drawable/star_rate_icon"
-            android:title="Rate"/>
+            android:title="@string/rate"/>
+    <item
+        android:id="@+id/change_language"
+        android:icon="@drawable/star_rate_icon"
+        android:title="@string/change_language"/>
             <item
                 android:id="@+id/version"
                 app:showAsAction="never"
-                android:title="version"/>
+                android:title="@string/version"/>
 
 
 </menu>
