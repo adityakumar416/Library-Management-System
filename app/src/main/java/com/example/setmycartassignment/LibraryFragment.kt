@@ -30,6 +30,9 @@ class LibraryFragment : Fragment() {
         binding = FragmentLibraryBinding.inflate(inflater, container, false)
 
 
+        (activity as MainActivity).supportActionBar?.title = context?.getString(R.string.library)
+
+
         // Fetch data from Firebase
         getFirebaseUsers()
         getFirebaseBooks()
@@ -144,7 +147,7 @@ class LibraryFragment : Fragment() {
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 userNamesList.clear()
-                userNamesList.add("Select User")
+                userNamesList.add(context!!.getString(R.string.select_user))
                 for (dataSnapshot in snapshot.children) {
                     val userName = dataSnapshot.child("userName").getValue(String::class.java)
                     userName?.let {
@@ -165,7 +168,7 @@ class LibraryFragment : Fragment() {
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 bookNamesList.clear()
-                bookNamesList.add("Select Book")
+                bookNamesList.add(context!!.getString(R.string.select_book))
 
                 for (dataSnapshot in snapshot.children) {
                     val bookName = dataSnapshot.child("bookName").getValue(String::class.java)

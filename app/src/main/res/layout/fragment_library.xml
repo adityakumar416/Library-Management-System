@@ -48,6 +48,6 @@
         android:layout_below="@id/bookSpinner"
         android:layout_marginTop="16dp"
         android:layout_gravity="center"
-        android:text="Borrow"/>
+        android:text="@string/borrow"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
